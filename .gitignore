@@ -1,0 +1,20 @@
+
+# Python
+*.pyc
+__pycache__/
+
+# Env
+env/
+venv/
+mywork/
+
+# DB
+*.sqlite3
+
+# VSCode
+.vscode/
+
+# Django specific
+*.log
+db.sqlite3
+/staticfiles/
