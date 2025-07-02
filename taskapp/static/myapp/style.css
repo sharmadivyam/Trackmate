@@ -1,0 +1,10 @@
+.body{
+    background-color: aqua;
+
+}
+.input{
+    background-color: blue;
+    color: black;
+    border-radius: 10%;
+    border-color: aliceblue;
+}
