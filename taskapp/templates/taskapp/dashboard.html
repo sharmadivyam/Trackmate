@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the Dashboard! {{username}}</h1>
+
+    <h2>YOUR TASKS:</h2>
+    {%if tasks%}
+    <table>
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Details</td>
+                <td>Start</td>
+                <td>Deadline</td>
+                <td>Progress</td>
+                <td>Category</td>
+                <td>Last Updated</td>
+            </tr>
+        </thead>
+        <tbody>
+        {%for task in tasks%}
+            <tr>
+                <th>{{task.task}}</th>
+                <th>{{task.details}}</th>
+                <th>{{task.start_date}}</th>
+                <th>{{task.deadline}}</th>
+                <th>{{task.progress}}</th>
+                <th>{{task.last_update}}</th>
+                <th>{{task.category}}</th>
+                
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    {%else%}
+        <P>No Tasks yet!</P>
+    {%endif%}
+    
+    
+    <h1>Sign Up!</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name"></input><br>
+
+        <label for="emailid">E-mail ID</label><br>
+        <input type="text" id="emailid" name="email"></input><br>
+
+        <label for="password1">Enter Password</label><br>
+        <input type="password" id ="password1" name="password1"><br>
+
+        <label for="password1">Re-enter Password</label><br>
+        <input type="password" id ="password2" name="password2"><br>
+
+        <button type="submit">Register!</button>
+    </form>
+</body>
+</html>

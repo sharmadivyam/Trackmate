@@ -1,16 +1,17 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, Task
 from django.contrib.auth.hashers import check_password
 
 class UserSerializer (serializers.ModelSerializer):
         password1 = serializers.CharField(write_only=True, required =False)
         password2 = serializers.CharField(write_only=True, required =False)
         name = serializers.CharField(write_only=True, required =False)
+        password = serializers.CharField(write_only=True, required=False)
         class Meta:
             model = User
-            fields = ['email','password1','password2','name']
+            fields = ['email','password1','password2','name','password']
 
-        
+    
         def validate(self,data):
             mode = self.context.get("mode")
             if mode == "signup":
@@ -25,11 +26,9 @@ class UserSerializer (serializers.ModelSerializer):
                 except User.DoesNotExist:
                     raise serializers.ValidationError("Email ID not registered.")
 
-                # ✅ Use check_password correctly
                 if not check_password(data['password'], user.password):
                     raise serializers.ValidationError("Incorrect password.")
-
-                # ✅ Attach user object
+ 
                 data['user'] = user
                 return data
 
@@ -43,3 +42,9 @@ class UserSerializer (serializers.ModelSerializer):
             )
             user.save()
             return user
+
+
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['id', 'task', 'details', 'start_date', 'deadline', 'progress', 'last_update', 'category']
