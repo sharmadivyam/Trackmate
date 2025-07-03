@@ -1,12 +1,13 @@
-# Task Tracker App
+Task Tracker App
+A Django-based task management tool. More features are being actively developed.
 
-A Django-based task management tool. More Feature building in progress..
+Features So Far:
+User Signup using a custom API with serializers
 
-### Features so far:
-- User Signup using custom API + serializer
-- HTML template for signup (`signup.html`)
+User Login with validation
 
-### Setup Instructions
-1. Clone the repo
-2. Create virtual env & install dependencies
-3. Run `python manage.py runserver`
+JWT-based Authentication using SimpleJWT (in progress)
+
+Custom HTML templates for signup and login (signup.html, login.html)
+
+Middleware understanding and implementation
