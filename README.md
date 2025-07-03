@@ -1,4 +1,4 @@
-Task Tracker App
+**Task Tracker App**
 A Django-based task management tool. More features are being actively developed.
 
 Features So Far:
