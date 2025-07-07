@@ -42,21 +42,23 @@
     {%endif%}
     
     
-    <h1>Sign Up!</h1>
+    <h1>Add Tasks</h1>
     <form method="post">
         {% csrf_token %}
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name"></input><br>
+        <input type="text" name="task" placeholder="TaskName" required><br>
+        <input type="text" name="details" placeholder="Details" required><br>
+        <input type="date" name="start_date" placeholder="Start_Date" required><br>
+        <input type="date" name="deadline" placeholder="Details" required><br>
+        <input type="number" name="progress" placeholder="progress (in %)" min="0" max="100" value="0">
 
-        <label for="emailid">E-mail ID</label><br>
-        <input type="text" id="emailid" name="email"></input><br>
-
-        <label for="password1">Enter Password</label><br>
-        <input type="password" id ="password1" name="password1"><br>
-
-        <label for="password1">Re-enter Password</label><br>
-        <input type="password" id ="password2" name="password2"><br>
-
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            <option value="MTG">Meeting</option>
+            <option value="DEV">Development</option>
+            <option value="BUG">Bug Fixing</option>
+            <option value="FIT">Fitness</option>
+            <option value="OTH">Other</option>
+        </select>
         <button type="submit">Register!</button>
     </form>
 </body>

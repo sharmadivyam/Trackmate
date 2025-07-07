@@ -105,6 +105,8 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+AUTH_USER_MODEL = 'taskapp.CustomUser'  # Replace 'yourapp' with your app name
+
 
 
 # Internationalization
